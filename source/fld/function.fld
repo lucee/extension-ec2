@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE func-lib PUBLIC "-//Railo//DTD CFML Function Library 1.0//EN"
+	"dtd/web-cfmfunctionlibrary_1_0.dtd">
+<!-- http://www.getrailo.com/j2ee/dtd/web-jspfunctionlibrary_1_0.dtd -->
+<func-lib>
+	<flib-version>1.00</flib-version>
+	<short-name>EC2</short-name>
+	<uri>http://extension.lucee.org/function/ec2</uri>
+	<display-name>EC2</display-name>
+	<description>
+		Functions to interact with EC2 Resource
+	</description>
+
+<!-- EC2DescribeInstances -->
+	<function>
+		<name>EC2DescribeInstances</name>
+		<class bundle-name="{bundle-name}" bundle-version="{bundle-version}">org.lucee.extension.aws.ec2.function.EC2DescribeInstances</class>
+		<description>get a description of all instances</description>
+		<argument>
+			<name>accessKeyId</name>
+			<alias>accessKey</alias>
+			<type>string</type>
+			<required>No</required>
+			<description>accessKeyId</description>
+	    </argument>
+		<argument>
+			<name>secretAccessKey</name>
+			<alias>secretkey</alias>
+			<type>string</type>
+			<required>No</required>
+			<description>secretAccessKey</description>
+	    </argument>
+		<argument>
+			<name>instanceIds</name>
+			<type>array</type>
+			<required>No</required>
+			<description></description>
+	    </argument>
+		<argument>
+			<name>filters</name>
+			<type>struct</type>
+			<required>No</required>
+			<description></description>
+	    </argument>
+		<argument>
+			<name>host</name>
+			<alias>provider,server</alias>
+			<type>string</type>
+			<required>No</required>
+			<description>the provider to connect, if not set Amazon AWS is used.</description>
+	    </argument>
+		<argument>
+			<name>timeout</name>
+			<type>number</type>
+			<required>No</required>
+			<default>10000</default>
+			<description>timeout for this execution</description>
+	    </argument>
+		<return>
+			<type>object</type>
+		</return>
+	</function>
+</func-lib>
