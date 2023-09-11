@@ -17,8 +17,6 @@
   <property name="tld" location="source/tld"/>
   <property name="fld" location="source/fld"/>
   
-
-  
   <buildnumber file="build.number"/>
 
   <scriptdef name="replace" language="javascript">
@@ -162,15 +160,12 @@ start-bundles: false
       </fileset>
     </copy>
 
-
-
     <!-- Zip everything  -->
      <zip destfile="${dist}/${filename}-${bundleversion}${build.number}${appendix}.lex">
         <zipfileset dir="${dist}/extension"/>
     </zip>
 		
   </target>
-
 	<target name="clean"  depends="dist" description="clean up" >
 		<!-- Delete the ${build} and ${dist} directory trees -->
 		<delete dir="${build}"/>
