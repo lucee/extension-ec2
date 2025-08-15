@@ -7,7 +7,6 @@
     <version>1.0.0.4-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>EC2 Extension</name>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
@@ -28,17 +27,6 @@
         <developerConnection>scm:git:git@github.com:lucee/extension-ec2.git</developerConnection>
         <tag>${project.version}</tag>
     </scm>
-
-    <distributionManagement>
-        <repository>
-            <id>ossrh</id>
-            <url>${release.url}</url>
-        </repository>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>${snapshot.url}</url>
-        </snapshotRepository>
-    </distributionManagement>
 
     <licenses>
         <license>
@@ -62,10 +50,8 @@
             <timezone>+1</timezone>
         </developer>
     </developers>
-
     <description>Core Extension to integrate EC2 into Lucee.</description>
     <url>https://github.com/lucee/extension-ec2</url>
-
     <profiles>
         <profile>
             <id>release-sign-artifacts</id>
@@ -239,15 +225,14 @@
 
             <!-- Nexus Staging Maven Plugin to automate the release process -->
             <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.13</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
+              <groupId>org.sonatype.central</groupId>
+              <artifactId>central-publishing-maven-plugin</artifactId>
+              <version>0.8.0</version>
+              <extensions>true</extensions>
+              <configuration>
+                <publishingServerId>ossrh</publishingServerId>
+                <autoPublish>true</autoPublish>
+              </configuration>
             </plugin>
         </plugins>
     </build>
